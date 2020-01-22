@@ -88,7 +88,7 @@ Before you start building, take a look at the files you have available in this r
 
 * In the main directory, you've got a `Gemfile` that gives you access to `activerecord`, `pry`, `rake`, and `sqlite3`.
   * Remember to `bundle install`!
-* In the `bin` directory, you've got a `run.rb` file that you can run from the command line with `ruby bin/run.rb.`
+* In the `bin` directory, you've got a `run.rb` file that you can run from the command line .`
 * In `config`, you've got your database set up with Active Record, as well as all of your models from the `lib` folder made available to your database.
 * In the `lib` directory, you'll be building all your models.
 
