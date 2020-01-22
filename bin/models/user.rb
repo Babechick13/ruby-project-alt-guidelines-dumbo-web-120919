@@ -24,13 +24,5 @@ class User < ActiveRecord::Base
     def self.list_question_titles
         puts Question.all.map(&:title)
     end 
-    def get_title
-        gets.chomp
-    end
-    def create_questions
-        title = get_title
-        user.id = Question.create(title: title)
-        
     end 
-end 
 

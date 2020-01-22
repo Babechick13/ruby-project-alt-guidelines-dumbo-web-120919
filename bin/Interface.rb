@@ -18,7 +18,7 @@ attr_accessor :prompt, :user
         
         prompt.select("Welcome #{self.user.name}! What are you interested in today?") do |menu| 
         menu.choice "See all Questions", -> {User.list_question_titles}
-        menu.choice "Create a Question", ->  {User.create_questions}
+        menu.choice "Create a Question", ->  {self.create_questions}
         menu.choice "Edit a Question"
     end 
     end
@@ -28,8 +28,11 @@ attr_accessor :prompt, :user
     def create_questions
         title = get_title
         user.id = Question.create(title: title)
-        
+        self.user
+    end
+    def update_question
+        question.update  
     end 
-    end  
+    end 
     
 
