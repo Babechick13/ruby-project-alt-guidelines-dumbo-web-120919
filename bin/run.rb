@@ -6,7 +6,7 @@ user_object = cli.greet
 
 while !user_object 
     user_object = cli.greet
-end
+ end
 
 cli.user = user_object
 

@@ -6,5 +6,7 @@ has_many :favorites
 def list_question_titles
     all.map(&:title)
 end
-
+def update_question(new_title)
+    self.update(title: new_title)
+end
 end 
