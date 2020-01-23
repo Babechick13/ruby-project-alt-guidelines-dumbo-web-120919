@@ -10,9 +10,6 @@ u3=User.create(name: "Anna")
 
 
 
-
-
-
 q1=Question.create(title: "When will my baby start walking?")
 q2=Question.create(title: "When will my child start talking?")
 q3=Question.create(title: "When can my child start eating solid foods?")
@@ -41,6 +38,7 @@ a7=Answer.create(title: "You can start giving apple puree,boilded/blended carrot
 a8=Answer.create(title: "Approximately 4oz every 3 hours",user_id: u1.id, question_id: q8.id)
 a9=Answer.create(title: "Desitin",user_id: u3.id, question_id: q9.id)
 a10=Answer.create(title: "After their belly button falls out- about a week after birth",user_id: u2.id, question_id: q10.id)
+
 
 
 

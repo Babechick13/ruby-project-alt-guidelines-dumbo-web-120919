@@ -25,7 +25,7 @@ attr_accessor :prompt, :user
         menu.choice "See all Questions".magenta, -> {self.see_all_questions}
         menu.choice "Create a Question".magenta, ->  {self.create_questions}
         menu.choice "Edit a Question".magenta, -> {self.update}
-        menu.choice "Delete a Question".magenta, -> {self.delete}
+        menu.choice "Delete a Question".magenta, -> {self.delete_a_question}
         menu.choice "Exit".magenta, -> {User.exit}
     end 
     end
@@ -34,10 +34,9 @@ attr_accessor :prompt, :user
 
 
     def see_all_questions
-
-        title_array =  Question.all.map(&:title)
+        # binding.pry
         answer = prompt.select("Choose your question") do |menu|
-            menu.enum '.'
+            # menu.enum '.'
           
             menu.choice Question.all[0].title, Question.all[0].answers[0].title
             menu.choice Question.all[1].title, Question.all[1].answers[0].title
@@ -46,9 +45,9 @@ attr_accessor :prompt, :user
             menu.choice Question.all[4].title, Question.all[4].answers[0].title
             menu.choice Question.all[5].title, Question.all[5].answers[0].title
             menu.choice Question.all[6].title, Question.all[6].answers[0].title
-            menu.choice Question.all[7].title, Question.all[7].answers[0].title
-            menu.choice Question.all[8].title, Question.all[8].answers[0].title
-            menu.choice Question.all[9].title, Question.all[9].answers[0].title
+            # menu.choice Question.all[7].title, Question.all[7].answers[0].title
+            # menu.choice Question.all[8].title, Question.all[8].answers[0].title
+            # menu.choice Question.all[9].title, Question.all[9].answers[0].title
             
           
     end
@@ -80,7 +79,7 @@ attr_accessor :prompt, :user
         main_menu
     end
     
-    
+    # binding.pry
     
     def update
         question = []
@@ -90,7 +89,7 @@ attr_accessor :prompt, :user
         prompt.select("Choose your question?") do |menu|
         menu.enum '.'
       
-        menu.choice 'When will my baby start walking?',  -> {update_query(question[0])}
+        menu.choice 'When will my baby start walking?', -> {update_query(question[0])}
         menu.choice 'When will my child start talking?', -> {update_query(question[1])}
         menu.choice 'When can my child start eating solid foods?', -> {update_query(question[2])}
         menu.choice 'When will my child start babling?', -> {update_query(question[3])}
@@ -106,10 +105,9 @@ attr_accessor :prompt, :user
     main_menu
     end 
 
-    def delete
-
-        
-        Question.all.find_by([id]).destroy
+    def delete_a_question
+        Question.first.destroy
+        back_to_menu
     end 
     
     
