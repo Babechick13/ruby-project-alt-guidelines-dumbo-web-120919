@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
          puts "These are the questions for #{self.name}."
          question_title = self.questions.map do |question|
          question.title
-        end
+    end
     end
 
     def self.list_question_titles
@@ -26,3 +26,5 @@ class User < ActiveRecord::Base
     end 
     end 
 
+
+   
