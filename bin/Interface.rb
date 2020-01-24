@@ -45,9 +45,9 @@ attr_accessor :prompt, :user
             menu.choice Question.all[4].title, Question.all[4].answers[0].title
             menu.choice Question.all[5].title, Question.all[5].answers[0].title
             menu.choice Question.all[6].title, Question.all[6].answers[0].title
-            # menu.choice Question.all[7].title, Question.all[7].answers[0].title
-            # menu.choice Question.all[8].title, Question.all[8].answers[0].title
-            # menu.choice Question.all[9].title, Question.all[9].answers[0].title
+        #     menu.chice Question.all[7].title, Question.all[7].answers[0].title
+        #     menu.choice Question.all[8].title, Question.all[8].answers[0].title
+        #     menu.choice Question.all[9].title, Question.all[9].answers[0].title
             
           
     end
@@ -76,10 +76,12 @@ attr_accessor :prompt, :user
     def update_query(question)
         response = gets.chomp
         question.update(title: response)
+        # binding.pry
         main_menu
+        
     end
     
-    # binding.pry
+   
     
     def update
         question = []
