@@ -36,7 +36,7 @@ attr_accessor :prompt, :user
     def see_all_questions
         # binding.pry
         answer = prompt.select("Choose your question") do |menu|
-            # menu.enum '.'
+            menu.enum '.'
           
             menu.choice Question.all[0].title, Question.all[0].answers[0].title
             menu.choice Question.all[1].title, Question.all[1].answers[0].title
@@ -45,9 +45,9 @@ attr_accessor :prompt, :user
             menu.choice Question.all[4].title, Question.all[4].answers[0].title
             menu.choice Question.all[5].title, Question.all[5].answers[0].title
             menu.choice Question.all[6].title, Question.all[6].answers[0].title
-        #     menu.chice Question.all[7].title, Question.all[7].answers[0].title
-        #     menu.choice Question.all[8].title, Question.all[8].answers[0].title
-        #     menu.choice Question.all[9].title, Question.all[9].answers[0].title
+            menu.choice Question.all[7].title, Question.all[7].answers[0].title
+            menu.choice Question.all[8].title, Question.all[8].answers[0].title
+            menu.choice Question.all[9].title, Question.all[9].answers[0].title
             
           
     end
@@ -86,24 +86,37 @@ attr_accessor :prompt, :user
     def update
         question = []
         Question.all.map do |q| 
-            question << q
+             question << q
         end 
+        question_title = []
+        Question.all.map do |q| 
+           
+            question_title << q.title
+        end 
+        
+
+        
+     
+
+        
         prompt.select("Choose your question?") do |menu|
         menu.enum '.'
       
-        menu.choice 'When will my baby start walking?', -> {update_query(question[0])}
-        menu.choice 'When will my child start talking?', -> {update_query(question[1])}
-        menu.choice 'When can my child start eating solid foods?', -> {update_query(question[2])}
-        menu.choice 'When will my child start babling?', -> {update_query(question[3])}
-        menu.choice 'How long do I wait after I introduced my child to their first food to give it to them again?', -> {update_query(question[4])} 
-        menu.choice 'When will my child start crawling?', -> {update_query(question[5])}
-        menu.choice 'When kinds of solids can I start giving my child?', -> {update_query(question[6])}
-        menu.choice 'How much formula should my baby be drinking at 3 months?', -> {update_query(question[7])}
-        menu.choice 'What cream is best recommended when my baby gets a diaper rash?', -> {update_query(question[8])}
-        menu.choice 'When should I start bathing my baby?', -> {update_query(question[9])} 
+        menu.choice "#{question[0].title}", -> {update_query(question[0])}
+        menu.choice "#{question[1].title}", -> {update_query(question[1])}
+        menu.choice "#{question[2].title}", -> {update_query(question[2])}
+        menu.choice "#{question[3].title}", -> {update_query(question[3])}
+        menu.choice "#{question[4].title}", -> {update_query(question[4])} 
+        menu.choice "#{question[5].title}", -> {update_query(question[5])}
+        menu.choice "#{question[6].title}", -> {update_query(question[6])}
+        menu.choice "#{question[7].title}", -> {update_query(question[7])}
+        menu.choice "#{question[8].title}", -> {update_query(question[8])}
+        menu.choice "#{question[9].title}", -> {update_query(question[9])} 
+
+        puts "Thanks for your imput"
         
     end
-    sleep(3)
+    sleep(5)
     main_menu
     end 
 

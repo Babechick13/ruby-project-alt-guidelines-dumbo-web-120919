@@ -16,15 +16,18 @@ class User < ActiveRecord::Base
      
     def see_all_questions
          puts "These are the questions for #{self.name}."
-    #      question_title = self.questions.map do |question|
-    #      question.title
-    # end
-    # end
-
-    # def self.list_question_titles
-    #     puts Question.all.map(&:title)
+    
     end 
-    end 
+    def update_questions
+        
+        question_titles = Question.all.map do |question|
+     puts question.title 
+    
+        end
+    #     TTY::Prompt.new.select("These are the teams for #{self.name}. Choose 1 to see more details.")
+    end     
+end
+    
 
 
    
