@@ -26,7 +26,7 @@ attr_accessor :prompt, :user
         menu.choice "Create a Question".magenta, ->  {self.create_questions}
         menu.choice "Edit a Question".magenta, -> {self.update}
         menu.choice "Delete a Question".magenta, -> {self.delete_a_question}
-        menu.choice "Exit".magenta, -> {User.exit}
+        menu.choice "Exit".magenta, -> {self.exit}
     end 
     end
 
@@ -116,11 +116,15 @@ attr_accessor :prompt, :user
         puts "Thanks for your imput"
         
     end
-    sleep(5)
+    sleep(3)
     main_menu
     end 
 
     def delete_a_question
+        puts "PLease enter the question id you would like to delete"
+        answer = gets.chomp
+        
+        # binding.pry         
         Question.first.destroy
         back_to_menu
     end 
